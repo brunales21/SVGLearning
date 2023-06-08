@@ -11,10 +11,29 @@ public class Canvas {
         this.height = height;
     }
 
-    public void addElement(Element gf) {
-        elements.add(gf);
+    public void addElement(Element element) {
+        for (Element e: elements) {
+            if (element.getPosition().equals(e.getPosition())) {
+                element.setPosition(new Position(element.getPosition().getX()+200, element.getPosition().getY()));
+                if (element.getPosition().getX() > this.width-element.getSize().getWidth()) {
+                    element.setPosition(new Position(10, element.getPosition().getY()+150));
+                }
+            }
+        }
+        elements.add(element);
+    }
+    public Element getElementByName(String text) {
+        for (Element e: getElements()) {
+            if (e.getName().equals(text)) {
+                return e;
+            }
+        }
+        return null;
     }
 
+    public boolean existsElement(String className) {
+        return getElements().contains(getElementByName(className));
+    }
     public List<Element> getElements() {
         return elements;
     }
@@ -46,4 +65,5 @@ public class Canvas {
         sb.append("</svg>");
         return sb.toString();
     }
+
 }

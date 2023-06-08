@@ -1,33 +1,15 @@
+import java.util.Objects;
+
 public abstract class GeometricFigure extends Element {
-    private Position position;
-    private Size size;
     private Shape shape;
     private String color;
-    private String text;
 
     public GeometricFigure(Shape shape, String color, String text, Size size, Position position) {
+        super(text, position, size);
         this.shape = shape;
         this.color = color;
-        this.size = size;
-        this.text = text;
-        this.position = position;
     }
 
-    public Position getPosition() {
-        return position;
-    }
-
-    public void setPosition(Position position) {
-        this.position = position;
-    }
-
-    public Size getSize() {
-        return size;
-    }
-
-    public void setSize(Size size) {
-        this.size = size;
-    }
 
     public Shape getShape() {
         return shape;
@@ -47,14 +29,7 @@ public abstract class GeometricFigure extends Element {
 
 
 
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
     @Override
     public abstract String toString();
+
 }

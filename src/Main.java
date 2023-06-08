@@ -1,7 +1,11 @@
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 
 public class Main {
+    public static void main(String[] args) throws FileNotFoundException {
+        new UmlGenerator().generate(new Canvas(1500, 2000));
+    }
 
     private static void showClass(String className) {
 
@@ -35,9 +39,9 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main2(String[] args) throws FileNotFoundException {
 
-        PrintStream out = new PrintStream("umlFile.html");
+        PrintStream out = new PrintStream("svgFile.html");
 
         Canvas canvas = new Canvas(1200, 1000);
 
